@@ -1,0 +1,29 @@
+@import url("tailwindcss/base");
+@import url("tailwindcss/components");
+@import url("tailwindcss/utilities");
+
+.custom-gradient {
+    background-image: linear-gradient(to bottom, rgb(229 231 235 / 100%) 0%, rgb(255 255 255 / 100%) 15%);
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    animation: slide-in 0.3s ease-out forwards;
+}
+
+.zebra tr:nth-child(even) {
+    background: #eee;
+}
+
+.zebra tr:nth-child(odd) {
+    background: #ccc;
+}

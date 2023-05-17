@@ -1,0 +1,190 @@
+{
+    "editor.formatOnSave": false, // 預設的存擋時格式化
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": [
+        "source.formatDocument", //
+        "source.fixAll.eslint"
+    ],
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "editor.suggestSelection": "first",
+    "editor.snippetSuggestions": "inline",
+    // ...
+    "editor.inlayHints.enabled": "off",
+    "editor.guides.indentation": false, // new API for indent guides. The old one is: "editor.renderIndentGuides": false,
+    "editor.guides.bracketPairs": false, // advanced indent guides (But only for brackets) (This does not turn off editor.bracketPairColorization)
+    "editor.wordWrap": "off",
+    "diffEditor.wordWrap": "off",
+    "inlineFold.regex": "(class|className)=[`'{\"]([^`'\"}]{100,})[`'\"}]",
+    "inlineFold.regexFlags": "g",
+    "inlineFold.regexGroup": 2,
+    "tailwindCSS.emmetCompletions": true,
+    "[javascript]": {
+        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    "javascript.validate.enable": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[javascriptreact]": {
+        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    // "javascriptreact.validate.enable": false,
+    // "javascriptreact.updateImportsOnFileMove.enabled": "always",
+    "[typescript]": {
+        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    "typescript.validate.enable": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[typescriptreact]": {
+        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    // "typescriptreact.validate.enable": false,
+    // "typescriptreact.updateImportsOnFileMove.enabled": "always",
+    "[markdown]": {
+        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    "[mdx]": {
+        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    },
+    "[json]": {
+        "editor.formatOnSave": true
+        // "editor.defaultFormatter": "esbenp.prettier-vscode"
+        // "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.formatOnSave": true
+        // "editor.defaultFormatter": "esbenp.prettier-vscode"
+        // "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.formatOnSave": true
+        // "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.options": {
+        "extensions": [
+            ".js", //
+            ".jsx",
+            ".ts",
+            ".tsx",
+            ".md",
+            ".mdx"
+        ]
+    },
+    "eslint.validate": [
+        "javascript", //
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "markdown",
+        "mdx"
+    ],
+    "eslint.alwaysShowStatus": true,
+    "eslint.runtime": "node",
+    "eslint.execArgv": ["--max_old_space_size=8192"],
+    "docwriter.language": "Chinese",
+    "css.lint.unknownAtRules": "ignore",
+    // disable the built-in CSS, Less, and SCSS linters
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+    // Add the language identifiers you want to validate to the extension's workspace
+    "stylelint.validate": [
+        "css", //
+        "less",
+        "postcss",
+        "scss",
+        "stylus"
+    ],
+    "stylelint.snippet": [
+        "css", //
+        "less",
+        "postcss",
+        "scss",
+        "stylus"
+    ],
+    "[css]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": true
+        },
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "[less]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": true
+        },
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "[scss]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": true
+        },
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "[stylus]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.stylelint": true
+        },
+        "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    },
+    "[solidity]": {
+        "editor.codeActionsOnSave": ["source.formatDocument"]
+        // "editor.defaultFormatter": "esbenp.prettier-vscode",
+        // "editor.formatOnSave": true
+    },
+    "auto-rename-tag.activationOnLanguage": [
+        "html", //
+        "xml",
+        "php",
+        "markdown",
+        "mdx",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "breadcrumbs.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    // "workbench.colorCustomizations": {
+    // 	"editorBracketHighlight.foreground1": "#5caeef",
+    // 	"editorBracketHighlight.foreground2": "#dfb976",
+    // 	"editorBracketHighlight.foreground3": "#c172d9",
+    // 	"editorBracketHighlight.foreground4": "#4fb1bc",
+    // 	"editorBracketHighlight.foreground5": "#97c26c",
+    // 	"editorBracketHighlight.foreground6": "#abb2c0",
+    // 	"editorBracketHighlight.unexpectedBracket.foreground": "#db6165"
+    // },
+    // "editor.cursorStyle": "line-thin",
+    // "editor.codeActionsOnSave": {
+    // 	"source.fixAll": true
+    // },
+    "editor.fontFamily": "JetBrains Mono, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    // "editor.fontWeight": "500",
+    // "window.zoomLevel": 0.5,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "liveServer.settings.host": "localhost",
+    "liveServer.settings.https": {
+        "enable": true,
+        "cert": "/Users/orz99/zoo/cert/localhost.pem",
+        "key": "/Users/orz99/zoo/cert/localhost-key.pem",
+        "passphrase": ""
+    },
+    "liveServer.settings.file": "index.html",
+    "liveServer.settings.root": "/dist",
+    "terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
+    "terminal.integrated.lineHeight": 1.1,
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+    },
+    // "autoimport.filesToScan": "**/*.{ts,tsx,js,jsx}",
+    "workbench.colorCustomizations": {
+        // ...
+        "editor.lineHighlightBorder": "#9fced11f",
+        "editor.lineHighlightBackground": "#1073cf2d"
+    }
+}

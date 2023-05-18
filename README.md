@@ -6,6 +6,14 @@
 
 ### 本地專案克隆
 
+##### 方法一，下載 zip 檔到本地解壓
+
+ZIP 下載 [範例專案] (https://github.com/yelban/acc)
+
+![下載專案 zip 檔](./assets/downloadzip.jpg)
+
+##### 方法二，使用 Git 命令，公司內網需設置當地網路外連 Proxy
+
 GIT 下載 [範例專案] (https://github.com/yelban/acc)
 
     git clone git@github.com:yelban/acc.git

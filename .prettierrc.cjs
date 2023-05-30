@@ -4,6 +4,6 @@ module.exports = {
     // useTabs: true, // 縮進使用 Tab 字元（預設 false）
     // singleQuote: true, // 使用單引號（預設 false）
     // jsxSingleQuote: true, // JSX 內容使用單引號（預設 false）
-    bracketSameLine: true, // HTM 多行元素與結尾括號在同一行（預設 false）
+    bracketSameLine: true, // HTML 多行元素與結尾括號在同一行（預設 false）
     endOfLine: "auto", // 行尾換行格式（預設 "lf"）
 };

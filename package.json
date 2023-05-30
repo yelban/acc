@@ -9,10 +9,16 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "@tailwindcss/aspect-ratio": "^0.4.2",
+        "@tailwindcss/container-queries": "^0.1.1",
+        "@tailwindcss/forms": "^0.5.3",
+        "@tailwindcss/typography": "^0.5.9",
+        "bootstrap": "^5.2.3",
         "connect-pause": "^0.1.0",
         "json-server": "^0.17.3",
         "tailwindcss": "^3.3.2",
-        "vue": "^3.2.47"
+        "vue": "^3.2.47",
+        "vue-dataset": "^3.5.3"
     },
     "devDependencies": {
         "@vitejs/plugin-vue": "^4.1.0",
@@ -29,7 +35,6 @@
         "sass": "^1.62.1",
         "stylelint": "^15.6.1",
         "stylelint-config-clean-order": "^5.0.1",
-        "stylelint-config-idiomatic-order": "^9.0.0",
         "stylelint-config-standard-scss": "^9.0.0",
         "stylelint-order": "^6.0.3",
         "stylelint-prettier": "^3.0.0",

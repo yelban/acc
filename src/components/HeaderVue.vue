@@ -18,10 +18,10 @@
                     <a href="#">Solutions</a>
                     <a href="#">Service</a>
                     <a href="#">Support</a>
-                    <button class="bg-[#F0F0F0] rounded-full p-2">
+                    <button class="bg-[#F0F0F0] rounded-full p-2 hover:bg-[#64DCF0]">
                         <a href="#"><i class="block fa-solid fa-globe text-xl"></i></a>
                     </button>
-                    <button class="bg-[#F0F0F0] rounded-full p-2">
+                    <button class="bg-[#F0F0F0] rounded-full p-2 hover:bg-[#64DCF0]">
                         <a href="#"><i class="block fa-solid fa-magnifying-glass text-xl"></i></a>
                     </button>
                 </div>

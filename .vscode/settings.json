@@ -140,7 +140,8 @@
         "javascript",
         "javascriptreact",
         "typescript",
-        "typescriptreact"
+        "typescriptreact",
+        "vue"
     ],
     "breadcrumbs.enabled": false,
     "editor.bracketPairColorization.enabled": true,

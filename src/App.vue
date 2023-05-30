@@ -1,15 +1,7 @@
 <script setup>
-import Content from "./components/ContentVue.vue";
-import Footer from "./components/FooterVue.vue";
-import Header from "./components/HeaderVue.vue";
+import App from './layout/ark/App.vue';
 </script>
 
 <template>
-    <div class="flex flex-col min-h-screen">
-        <Header />
-        <Content />
-        <Footer />
-    </div>
+    <App />
 </template>
-
-<style scoped></style>

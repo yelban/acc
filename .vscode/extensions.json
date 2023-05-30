@@ -12,7 +12,6 @@
         "formulahendry.auto-rename-tag",
         "vincaslt.highlight-matching-tag",
         "wix.vscode-import-cost",
-        "moalamri.inline-fold",
         "leodevbro.blockman",
         "github.copilot",
         "codium.codium",
@@ -24,6 +23,7 @@
         "sburg.vscode-javascript-booster",
         "unifiedjs.vscode-mdx",
         "dsznajder.es7-react-js-snippets",
-        "vue.volar"
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin"
     ]
 }

@@ -1,0 +1,9 @@
+<template>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+        <path d="M0 0h12v12H0Z" style="fill: none" />
+        <path
+            d="M8 1H0a1 1 0 0 1-1-1 1 1 0 0 1 1-1h8a1 1 0 0 1 1 1 1 1 0 0 1-1 1Z"
+            style="fill: #fff"
+            transform="translate(2 6)" />
+    </svg>
+</template>

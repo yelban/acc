@@ -60,12 +60,17 @@
         "editor.formatOnSave": true
         // "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[svg]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "jock.svg"
+    },
     "eslint.options": {
         "extensions": [
             ".js", //
             ".jsx",
             ".ts",
             ".tsx",
+            ".vue",
             ".md",
             ".mdx"
         ]
@@ -75,6 +80,7 @@
         "javascriptreact",
         "typescript",
         "typescriptreact",
+        "vue",
         "markdown",
         "mdx"
     ],

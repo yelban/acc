@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+  <defs>
+    <style>
+      .c{fill:none;stroke:#646464;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+    </style>
+  </defs>
+  <rect width="30" height="30" rx="15" style="fill:none"/>
+  <g transform="translate(8.29 9.5)">
+    <circle cx="1" cy="1" r="1" class="c" transform="translate(5.71 4.5)"/>
+    <circle cx="1" cy="1" r="1" class="c" transform="translate(12.71 4.5)"/>
+    <circle cx="1" cy="1" r="1" class="c" transform="translate(-1.29 4.5)"/>
+  </g>
+</svg>

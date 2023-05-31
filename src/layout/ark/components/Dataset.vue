@@ -1,6 +1,9 @@
 <script>
 import cols from '../data/user-cols.json';
 import users from '../data/users.json';
+import IconEdit from '../icons/IconEdit.vue';
+import IconEye from '../icons/IconEye.vue';
+import IconTrash from '../icons/IconTrash.vue';
 import {
     Dataset,
     DatasetInfo,
@@ -20,6 +23,9 @@ export default {
         DatasetSearch,
         DatasetShow,
         // CustomSearch,
+        IconEye,
+        IconEdit,
+        IconTrash,
     },
     data() {
         return {
@@ -74,7 +80,6 @@ export default {
     },
 };
 </script>
-
 <template>
     <div id="dataset">
         <div class="text-4xl font-bold py-4">DSBG</div>
@@ -113,46 +118,53 @@ export default {
                 </div>
             </div>
 
-            <div class="">
-                <table class="table-auto border-collapse border border-slate-500">
+            <div class="px-2">
+                <table class="w-full border-collapse">
                     <thead>
-                        <tr>
-                            <th class="border border-slate-600">#</th>
+                        <tr class="bg-[#FFE664] text-left">
+                            <th class="border border-slate-100 px-2">#</th>
                             <th
                                 v-for="(th, index) in cols"
                                 :key="th.field"
-                                class="border border-slate-600">
+                                class="border border-slate-100 px-2">
                                 <div :class="['sort', th.sort]" @click="click($event, index)">
-                                    {{ th.name }}
+                                    {{ th.name }}<span>{{ th.sort }}</span>
                                 </div>
                             </th>
+                            <th class="border border-slate-100 px-2">Actions</th>
                         </tr>
                     </thead>
                     <dataset-item tag="tbody">
                         <template #default="{ row, rowIndex }">
-                            <tr>
-                                <td class="border border-slate-700 px-2 min-w-[50px]">
+                            <tr class="odd:bg-[#F0F0F0] text-zinc-600">
+                                <td class="border border-slate-100 px-2 min-w-[50px]">
                                     {{ rowIndex + 1 }}
                                 </td>
-                                <td class="border border-slate-700 px-2 min-w-[100px]">
+                                <td class="border border-slate-100 px-2 min-w-[100px]">
                                     {{ row.first_name }}
                                 </td>
-                                <td class="border border-slate-700 px-2 min-w-[100px]">
+                                <td class="border border-slate-100 px-2 min-w-[100px]">
                                     {{ row.last_name }}
                                 </td>
-                                <td class="border border-slate-700 px-2 min-w-[100px]">
+                                <td class="border border-slate-100 px-2 min-w-[75px]">
                                     {{ row.gender }}
                                 </td>
-                                <td class="border border-slate-700 px-2 min-w-[100px]">
+                                <td class="border border-slate-100 px-2 min-w-[100px]">
                                     {{ row.birthdate }}
                                 </td>
                                 <td
-                                    class="border border-slate-700 px-2 min-w-[100px] max-w-[200px] truncate">
+                                    class="border border-slate-100 px-2 min-w-[100px] max-w-[200px] truncate">
                                     {{ row.email }}
                                 </td>
                                 <td
-                                    class="border border-slate-700 min-w-[100px] max-w-[250px] truncate">
+                                    class="border border-slate-100 px-2 min-w-[100px] max-w-[200px] truncate">
                                     {{ row.profile }}
+                                </td>
+                                <td
+                                    class="flex justify-between gap-1 text-zinc-400 border border-slate-100 px-2 min-w-[100px]">
+                                    <IconEye class="hover:text-zinc-600" />
+                                    <IconEdit class="hover:text-zinc-600" />
+                                    <IconTrash class="hover:text-zinc-600" />
                                 </td>
                             </tr>
                         </template>

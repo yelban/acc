@@ -128,7 +128,7 @@ export default {
                                 :key="th.field"
                                 class="border border-slate-100 px-2">
                                 <div :class="['sort', th.sort]" @click="click($event, index)">
-                                    {{ th.name }}<span>{{ th.sort }}</span>
+                                    {{ th.name }} <span>{{ th.sort }}</span>
                                 </div>
                             </th>
                             <th class="border border-slate-100 px-2">Actions</th>

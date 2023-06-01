@@ -3,6 +3,9 @@ import cols from '../data/user-cols.json';
 import users from '../data/users.json';
 import IconEdit from '../icons/IconEdit.vue';
 import IconEye from '../icons/IconEye.vue';
+import IconSort from '../icons/IconSort.vue';
+import IconSortDown from '../icons/IconSortDown.vue';
+import IconSortUp from '../icons/IconSortUp.vue';
 import IconTrash from '../icons/IconTrash.vue';
 import {
     Dataset,
@@ -26,6 +29,9 @@ export default {
         IconEye,
         IconEdit,
         IconTrash,
+        IconSort,
+        IconSortUp,
+        IconSortDown,
     },
     data() {
         return {
@@ -127,8 +133,20 @@ export default {
                                 v-for="(th, index) in cols"
                                 :key="th.field"
                                 class="border border-slate-100 px-2">
-                                <div :class="['sort', th.sort]" @click="click($event, index)">
-                                    {{ th.name }} <span>{{ th.sort }}</span>
+                                <div
+                                    :class="['sort', th.sort]"
+                                    @click="click($event, index)"
+                                    class="flex whitespace-nowrap">
+                                    <div>{{ th.name }}</div>
+                                    <div v-if="!th.sort" class="scale-50">
+                                        <IconSort />
+                                    </div>
+                                    <div v-else-if="th.sort == 'asc'" class="scale-50">
+                                        <IconSortUp />
+                                    </div>
+                                    <div v-else class="scale-50">
+                                        <IconSortDown />
+                                    </div>
                                 </div>
                             </th>
                             <th class="border border-slate-100 px-2">Actions</th>

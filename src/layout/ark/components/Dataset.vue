@@ -88,7 +88,7 @@ export default {
 </script>
 <template>
     <div id="dataset">
-        <div class="text-4xl font-bold py-4">DSBG</div>
+        <div class="text-4xl font-bold pl-4 pt-4">DSBG</div>
         <dataset
             v-slot="{ ds }"
             :ds-data="users"
@@ -109,7 +109,7 @@ export default {
                 :data-page-count="ds.dsPagecount">
                 <div class="w-64">
                     <dataset-show
-                        :ds-show-entries="15"
+                        :ds-show-entries="5"
                         :ds-show-entries-lovs="[
                             { value: 5, text: 5 },
                             { value: 10, text: 10 },
@@ -128,11 +128,11 @@ export default {
                 <table class="w-full border-collapse">
                     <thead>
                         <tr class="bg-[#FFE664] text-left">
-                            <th class="border border-slate-100 px-2">#</th>
+                            <th class="border border-slate-100 p-3">#</th>
                             <th
                                 v-for="(th, index) in cols"
                                 :key="th.field"
-                                class="border border-slate-100 px-2">
+                                class="border border-slate-100 p-3">
                                 <div
                                     :class="['sort', th.sort]"
                                     @click="click($event, index)"
@@ -155,31 +155,27 @@ export default {
                     <dataset-item tag="tbody">
                         <template #default="{ row, rowIndex }">
                             <tr class="odd:bg-[#F0F0F0] text-zinc-600">
-                                <td class="border border-slate-100 px-2 min-w-[50px]">
+                                <td class="border border-slate-100 p-3 min-w-[64px]">
                                     {{ rowIndex + 1 }}
                                 </td>
-                                <td class="border border-slate-100 px-2 min-w-[100px]">
+                                <td class="border border-slate-100 p-3 min-w-[100px]">
                                     {{ row.first_name }}
                                 </td>
-                                <td class="border border-slate-100 px-2 min-w-[100px]">
+                                <td class="border border-slate-100 p-3 min-w-[100px]">
                                     {{ row.last_name }}
                                 </td>
-                                <td class="border border-slate-100 px-2 min-w-[75px]">
+                                <td class="border border-slate-100 p-3 min-w-[75px]">
                                     {{ row.gender }}
                                 </td>
-                                <td class="border border-slate-100 px-2 min-w-[100px]">
+                                <td class="border border-slate-100 p-3 min-w-[100px]">
                                     {{ row.birthdate }}
                                 </td>
                                 <td
-                                    class="border border-slate-100 px-2 min-w-[100px] max-w-[200px] truncate">
-                                    {{ row.email }}
-                                </td>
-                                <td
-                                    class="border border-slate-100 px-2 min-w-[100px] max-w-[200px] truncate">
+                                    class="border border-slate-100 p-3 min-w-[100px] max-w-[200px] truncate">
                                     {{ row.profile }}
                                 </td>
                                 <td
-                                    class="flex justify-between gap-1 text-zinc-400 border border-slate-100 px-2 min-w-[100px]">
+                                    class="flex justify-between gap-1 text-zinc-400 border border-slate-100 p-3 min-w-[100px]">
                                     <IconEye class="hover:text-zinc-600" />
                                     <IconEdit class="hover:text-zinc-600" />
                                     <IconTrash class="hover:text-zinc-600" />

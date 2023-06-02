@@ -20,11 +20,6 @@
         "sort": ""
     },
     {
-        "name": "Email",
-        "field": "email",
-        "sort": ""
-    },
-    {
         "name": "Profile",
         "field": "profile",
         "sort": ""

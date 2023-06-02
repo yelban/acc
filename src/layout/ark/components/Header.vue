@@ -8,7 +8,7 @@ import IconSearch from '../icons/IconSearch.vue';
         <div class="flex items-center justify-between p-4">
             <div id="banner" class="">
                 <a href="#" class="flex items-center">
-                    <img src="../icons/logo.svg" alt="網站 Logo" class="h-7" >
+                    <img src="../icons/logo.svg" alt="網站 Logo" class="h-10" >
                     <span
                         class="self-center text-base font-bold whitespace-nowrap text-[#005087] ml-6 pl-6 border-l-2 border-[#005087]"
                         >網站名稱</span

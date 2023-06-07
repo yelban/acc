@@ -47,6 +47,9 @@ export default {
             selected: 5,
             active: true,
             away: true,
+            datasetView: false,
+            datasetEdit: false,
+            dialog: false,
         };
     },
     computed: {
@@ -87,6 +90,187 @@ export default {
 };
 </script>
 <template>
+    <div class="text-center ma-2">
+        <v-row justify="center">
+            <v-dialog v-model="datasetView" width="768">
+                <v-card>
+                    <v-card-title>
+                        <span class="text-h5 p-8">View</span>
+                    </v-card-title>
+                    <v-card-text>
+                        <v-container>
+                            <v-row>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        model-value="Hastings"
+                                        readonly
+                                        hint="First name"
+                                        persistent-hint
+                                        required />
+                                </v-col>
+
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        model-value="Skerratt"
+                                        readonly
+                                        hint="Last name"
+                                        persistent-hint
+                                        required />
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-radio-group
+                                        model-value="Female"
+                                        inline
+                                        hint="Gender"
+                                        persistent-hint>
+                                        <v-radio label="Female" value="Female" />
+                                        <v-radio label="Male" value="Male" />
+                                    </v-radio-group>
+                                </v-col>
+
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        model-value="hskerratt0@japanpost.jp"
+                                        readonly
+                                        hint="Email"
+                                        persistent-hint
+                                        required />
+                                </v-col>
+
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        model-value="1234567890"
+                                        hint="Password"
+                                        persistent-hint
+                                        type="password"
+                                        required />
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-select
+                                        :items="['0-17', '18-29', '30-54', '54+']"
+                                        model-value="18-29"
+                                        hint="Age"
+                                        persistent-hint
+                                        required />
+                                </v-col>
+                                <v-col cols="12">
+                                    <v-textarea
+                                        model-value="Phasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.\n\nInteger ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi."
+                                        name="input-7-1"
+                                        variant="filled"
+                                        hint="Profile"
+                                        persistent-hint
+                                        auto-grow />
+                                </v-col>
+                            </v-row>
+                        </v-container>
+                        <small>*indicates required field</small>
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-spacer />
+                        <v-btn color="blue-darken-1" variant="text" @click="datasetView = false">
+                            Close
+                        </v-btn>
+                        <v-btn color="blue-darken-1" variant="text" @click="datasetView = false">
+                            Save
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+            <v-dialog v-model="datasetEdit" width="768">
+                <v-card>
+                    <v-card-title>
+                        <span class="text-h5 p-8">Edit</span>
+                    </v-card-title>
+                    <v-card-text>
+                        <v-container>
+                            <v-row>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        model-value="Hastings"
+                                        clearable
+                                        hint="First name*"
+                                        persistent-hint
+                                        required />
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        model-value="Skerratt"
+                                        clearable
+                                        hint="Last name*"
+                                        persistent-hint
+                                        required />
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-radio-group
+                                        model-value="Female"
+                                        inline
+                                        hint="Gender*"
+                                        persistent-hint>
+                                        <v-radio label="Female" value="Female" />
+                                        <v-radio label="Male" value="Male" />
+                                    </v-radio-group>
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        model-value="hskerratt0@japanpost.jp"
+                                        clearable
+                                        hint="Email*"
+                                        persistent-hint
+                                        required />
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-text-field
+                                        model-value="1234567890"
+                                        clearable
+                                        hint="Password"
+                                        persistent-hint
+                                        type="password"
+                                        required />
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                    <v-select
+                                        :items="['0-17', '18-29', '30-54', '54+']"
+                                        model-value="18-29"
+                                        label="Age*"
+                                        persistent-hint
+                                        required />
+                                </v-col>
+                                <v-col cols="12">
+                                    <v-textarea
+                                        model-value="Phasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.\n\nInteger ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi."
+                                        clearable
+                                        name="input-7-1"
+                                        variant="filled"
+                                        hint="Profile"
+                                        persistent-hint
+                                        auto-grow />
+                                </v-col>
+                            </v-row>
+                        </v-container>
+                        <small>*indicates required field</small>
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-spacer />
+                        <v-btn color="blue-darken-1" variant="text" @click="datasetEdit = false">
+                            Close
+                        </v-btn>
+                        <v-btn color="blue-darken-1" variant="text" @click="datasetEdit = false">
+                            Save
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+            <v-dialog v-model="dialog" width="auto">
+                <v-card>
+                    <v-card-text> Please confirm if you want to delete this data? </v-card-text>
+                    <v-card-actions>
+                        <v-btn color="primary" block @click="dialog = false">Confirm</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+        </v-row>
+    </div>
     <div id="dataset">
         <div class="text-4xl font-bold pl-4 pt-4">DSBG</div>
         <dataset
@@ -176,9 +360,13 @@ export default {
                                 </td>
                                 <td
                                     class="flex justify-between gap-1 text-zinc-400 border border-slate-100 p-3 min-w-[100px]">
-                                    <IconEye class="hover:text-zinc-600" />
-                                    <IconEdit class="hover:text-zinc-600" />
-                                    <IconTrash class="hover:text-zinc-600" />
+                                    <IconEye
+                                        @click="datasetView = true"
+                                        class="hover:text-zinc-600" />
+                                    <IconEdit
+                                        @click="datasetEdit = true"
+                                        class="hover:text-zinc-600" />
+                                    <IconTrash @click="dialog = true" class="hover:text-zinc-600" />
                                 </td>
                             </tr>
                         </template>

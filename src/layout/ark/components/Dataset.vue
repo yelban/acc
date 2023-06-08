@@ -265,7 +265,9 @@ export default {
                 <v-card>
                     <v-card-text> Please confirm if you want to delete this data? </v-card-text>
                     <v-card-actions>
-                        <v-btn color="primary" block @click="dialog = false">Confirm</v-btn>
+                        <v-spacer />
+                        <v-btn color="blue-darken-1">Yes</v-btn>
+                        <v-btn color="blue-darken-1">No</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>

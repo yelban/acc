@@ -11,15 +11,14 @@ module.exports = {
     extends: [
         'plugin:vue/vue3-essential',
         'eslint:recommended',
+        '@vue/eslint-config-prettier/skip-formatting',
         'plugin:import/recommended', // 1. eslint-plugin-import
         'plugin:prettier/recommended', // 3. eslint-plugin-prettier
-        '@vue/eslint-config-prettier/skip-formatting',
     ],
     parserOptions: {
         ecmaVersion: 'latest',
     },
     plugins: [
-        // 'vue',
         'simple-import-sort', // 2. eslint-plugin-simple-import-sort
     ],
     rules: {
@@ -33,6 +32,12 @@ module.exports = {
         //
         'no-unused-vars': 'warn',
     },
+    settings: {
+        // resolve issue: Unable to resolve path to module '@/assets/main.css'.eslint (import/no-unresolved)
+        ...createAliasSetting({
+            '@': `${path.resolve(__dirname, './src')}`,
+        }),
+    },
     overrides: [
         {
             // Disable multi-word-component-names
@@ -43,8 +48,8 @@ module.exports = {
                     'error',
                     {
                         html: {
-                            void: 'never',
-                            normal: 'always',
+                            void: 'always',
+                            normal: 'never',
                             component: 'always',
                         },
                         svg: 'always',

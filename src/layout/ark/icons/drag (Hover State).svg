@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-  <defs>
-    <style>
-      .c{fill:none;stroke:#1f2937;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.667px}
-    </style>
-  </defs>
-  <path d="M0 0h20v20H0Z" style="fill:none"/>
-  <path d="M8.33 4.17a.83.83 0 1 1-.83-.84.83.83 0 0 1 .83.84ZM8.33 10a.83.83 0 1 1-.83-.83.83.83 0 0 1 .83.83ZM8.33 15.83A.83.83 0 1 1 7.5 15a.83.83 0 0 1 .83.83ZM13.33 4.17a.83.83 0 1 1-.83-.84.83.83 0 0 1 .83.84ZM13.33 10a.83.83 0 1 1-.83-.83.83.83 0 0 1 .83.83ZM13.33 15.83a.83.83 0 1 1-.83-.83.83.83 0 0 1 .83.83Z" class="c"/>
-</svg>

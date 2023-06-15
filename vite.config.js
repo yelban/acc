@@ -1,8 +1,9 @@
-// import { fileURLToPath, URL } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
 
 import vue from '@vitejs/plugin-vue';
 import fs from 'fs';
 import { defineConfig, loadEnv } from 'vite';
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
     // loadEnv(mode, process.cwd()) 會讀取 .env, .env.local, .env.[mode], .env.[mode].local
@@ -15,11 +16,12 @@ export default defineConfig(({ mode }) => {
 
     return {
         plugins: [vue()],
-        // resolve: {
-        //     alias: {
-        //         '@': fileURLToPath(new URL('./src', import.meta.url)),
-        //     },
-        // },
+        resolve: {
+            alias: {
+                '@': fileURLToPath(new URL('./src', import.meta.url)),
+            },
+            extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
+        },
         // 啟用 https
         // server: {
         //     https: {
@@ -27,5 +29,14 @@ export default defineConfig(({ mode }) => {
         //         cert: fs.readFileSync(process.env.VITE_HTTPS_CERT),
         //     },
         // },
+        css: {
+            preprocessorOptions: {
+                less: {
+                    math: 'always',
+                    relativeUrls: true,
+                    javascriptEnabled: true,
+                },
+            },
+        },
     };
 });

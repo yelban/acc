@@ -1,11 +1,14 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"],
-      "@playground/*": ["./playground/*"],
-      "@root/*": ["./*"]
-    }
-  },
-  "exclude": ["node_modules", "dist"]
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"],
+            "@playground/*": ["./playground/*"],
+            "@root/*": ["./*"]
+        }
+    },
+    "exclude": ["node_modules", "dist"]
 }

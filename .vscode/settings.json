@@ -1,113 +1,108 @@
 {
-    "editor.formatOnSave": false, // 預設的存擋時格式化
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": [
-        "source.formatDocument", //
-        "source.fixAll.eslint"
-    ],
+    // "editor.formatOnSave": false, // 預設的存擋時格式化
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // 預設的格式化工具
+    "editor.linkedEditing": true, // 同時編輯 html tag
+    "html.autoClosingTags": true,
+    "files.trimTrailingWhitespace": true,
+    "breadcrumbs.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.fontFamily": "JetBrains Mono, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
     "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
         "strings": true
     },
+    // "editor.suggestOnTriggerCharacters": true,
     "editor.suggestSelection": "first",
     "editor.snippetSuggestions": "inline",
-    // ...
-    "editor.inlayHints.enabled": "off",
-    "editor.guides.indentation": false, // new API for indent guides. The old one is: "editor.renderIndentGuides": false,
-    "editor.guides.bracketPairs": false, // advanced indent guides (But only for brackets) (This does not turn off editor.bracketPairColorization)
-    "editor.wordWrap": "off",
-    "diffEditor.wordWrap": "off",
-    "inlineFold.regex": "(class|className)=[`'{\"]([^`'\"}]{100,})[`'\"}]",
-    "inlineFold.regexFlags": "g",
-    "inlineFold.regexGroup": 2,
+    // "path-intellisense.mappings": {
+    //     "@": "${workspaceRoot}/src"
+    // },
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "vue-html": "html"
+    },
     "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html",
+        "javascript": "javascript",
+        "javascriptreact": "javascriptreact",
+        "typescript": "typescript",
+        "typescriptreact": "typescriptreact",
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "css.lint.unknownAtRules": "ignore",
+    "less.lint.unknownAtRules": "ignore",
+    "scss.lint.unknownAtRules": "ignore",
     "[javascript]": {
-        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.fixAll.eslint": true
+        }
     },
-    "javascript.validate.enable": false,
+    "javascript.autoClosingTags": true,
+    // "javascript.suggest.autoImports": true,
+    "javascript.suggest.paths": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "[javascriptreact]": {
-        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
-    },
-    // "javascriptreact.validate.enable": false,
-    // "javascriptreact.updateImportsOnFileMove.enabled": "always",
     "[typescript]": {
-        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.fixAll.eslint": true
+        }
     },
-    "typescript.validate.enable": false,
+    "typescript.autoClosingTags": true,
+    // "typescript.suggest.autoImports": true,
+    "typescript.suggest.paths": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
+    "[javascriptreact]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.fixAll.eslint": true
+        }
+    },
     "[typescriptreact]": {
-        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.fixAll.eslint": true
+        }
     },
-    // "typescriptreact.validate.enable": false,
-    // "typescriptreact.updateImportsOnFileMove.enabled": "always",
-    "[markdown]": {
-        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
+    "[vue]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.fixAll.eslint": true
+        },
+        "editor.formatOnSave": true
     },
-    "[mdx]": {
-        "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
-    },
+    "vue.updateImportsOnFileMove.enabled": true,
     "[json]": {
         "editor.formatOnSave": true
-        // "editor.defaultFormatter": "esbenp.prettier-vscode"
-        // "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[jsonc]": {
         "editor.formatOnSave": true
-        // "editor.defaultFormatter": "esbenp.prettier-vscode"
-        // "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[markdown]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.fixAll.eslint": true
+        }
+    },
+    "[mdx]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.fixAll.eslint": true
+        }
     },
     "[html]": {
-        "editor.formatOnSave": true
+        "editor.codeActionsOnSave": {
+            "source.fixAll": true,
+            "source.fixAll.eslint": true
+        }
+
         // "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "[svg]": {
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "jock.svg"
-    },
-    "eslint.options": {
-        "extensions": [
-            ".js", //
-            ".jsx",
-            ".ts",
-            ".tsx",
-            ".vue",
-            ".md",
-            ".mdx"
-        ]
-    },
-    "eslint.validate": [
-        "javascript", //
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue",
-        "markdown",
-        "mdx"
-    ],
-    "eslint.alwaysShowStatus": true,
-    "eslint.runtime": "node",
-    "eslint.execArgv": ["--max_old_space_size=8192"],
-    "docwriter.language": "Chinese",
-    "css.lint.unknownAtRules": "ignore",
-    // disable the built-in CSS, Less, and SCSS linters
-    "css.validate": false,
-    "less.validate": false,
-    "scss.validate": false,
-    // Add the language identifiers you want to validate to the extension's workspace
-    "stylelint.validate": [
-        "css", //
-        "less",
-        "postcss",
-        "scss",
-        "stylus"
-    ],
-    "stylelint.snippet": [
-        "css", //
-        "less",
-        "postcss",
-        "scss",
-        "stylus"
-    ],
     "[css]": {
         "editor.codeActionsOnSave": {
             "source.fixAll.stylelint": true
@@ -132,45 +127,9 @@
         },
         "editor.defaultFormatter": "stylelint.vscode-stylelint"
     },
-    "[solidity]": {
-        "editor.codeActionsOnSave": ["source.formatDocument"]
-        // "editor.defaultFormatter": "esbenp.prettier-vscode",
-        // "editor.formatOnSave": true
-    },
-    "auto-rename-tag.activationOnLanguage": [
-        "html", //
-        "xml",
-        "php",
-        "markdown",
-        "mdx",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "vue"
-    ],
-    "breadcrumbs.enabled": false,
-    "editor.bracketPairColorization.enabled": true,
-    // "workbench.colorCustomizations": {
-    // 	"editorBracketHighlight.foreground1": "#5caeef",
-    // 	"editorBracketHighlight.foreground2": "#dfb976",
-    // 	"editorBracketHighlight.foreground3": "#c172d9",
-    // 	"editorBracketHighlight.foreground4": "#4fb1bc",
-    // 	"editorBracketHighlight.foreground5": "#97c26c",
-    // 	"editorBracketHighlight.foreground6": "#abb2c0",
-    // 	"editorBracketHighlight.unexpectedBracket.foreground": "#db6165"
-    // },
-    // "editor.cursorStyle": "line-thin",
-    // "editor.codeActionsOnSave": {
-    // 	"source.fixAll": true
-    // },
-    "editor.fontFamily": "JetBrains Mono, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 14,
-    // "editor.fontWeight": "500",
-    // "window.zoomLevel": 0.5,
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
+    "[svg]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "jock.svg"
     },
     "liveServer.settings.host": "localhost",
     "liveServer.settings.https": {
@@ -186,12 +145,12 @@
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
-        "**/node_modules/*/**": true
-    },
-    // "autoimport.filesToScan": "**/*.{ts,tsx,js,jsx}",
-    "workbench.colorCustomizations": {
-        // ...
-        "editor.lineHighlightBorder": "#9fced11f",
-        "editor.lineHighlightBackground": "#1073cf2d"
+        "**/node_modules/*/**": true,
+        "**/public/**": true // adding this solved the slowdown
     }
+    // "workbench.colorCustomizations": {
+    //     // ...
+    //     "editor.lineHighlightBorder": "#9fced11f",
+    //     "editor.lineHighlightBackground": "#1073cf2d"
+    // }
 }

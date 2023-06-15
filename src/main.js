@@ -1,11 +1,19 @@
-import 'vuetify/dist/vuetify.min.css';
-import '@mdi/font/css/materialdesignicons.css';
+import '@/assets/main.css';
+// import 'primevue/resources/themes/tailwind-light/theme.css';
+import 'primevue/resources/themes/lara-light-teal/theme.css';
+import 'primevue/resources/primevue.min.css';
+import 'primeicons/primeicons.css';
 
+import PrimeVue from 'primevue/config';
 import { createApp } from 'vue';
-import Vuetify from 'vuetify/dist/vuetify.min.js';
+import VueTailwindDatepicker from 'vue-tailwind-datepicker';
 
 import App from './App.vue';
 
-const { createVuetify } = Vuetify;
-const vuetify = createVuetify();
-createApp(App).use(vuetify).mount('#app');
+const app = createApp(App);
+
+app.use(PrimeVue, { ripple: true });
+
+app.use(VueTailwindDatepicker);
+
+app.mount('#app');

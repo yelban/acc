@@ -7,6 +7,46 @@ import Accordion from 'primevue/accordion';
 import AccordionTab from 'primevue/accordiontab';
 
 import Calendar from 'primevue/calendar';
+
+import Dialog from 'primevue/dialog';
+
+import InputText from 'primevue/inputtext';
+
+import SelectButton from 'primevue/selectbutton';
+
+import Dropdown from 'primevue/dropdown';
+
+import './assets/flags.css';
+
+import Rating from 'primevue/rating';
+
+import Textarea from 'primevue/textarea';
+
+import Button from 'primevue/button';
+
+import { ref } from 'vue';
+const valueFirstName = ref('Hastings');
+const vauleLastName = ref('Skerratt');
+const date = ref('06/09/2023');
+const value = ref(1);
+const valueGender = ref('Femel');
+const optionsGender = ref(['Femel', 'Male']);
+const valueTextarea = ref(
+    'In view of the recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family, which is the foundation of freedom, justice and peace in the world.'
+);
+const selectedCountry = ref({ name: 'Australia', code: 'AU' });
+const countries = ref([
+    { name: 'Australia', code: 'AU' },
+    { name: 'Taiwan', code: 'TW' },
+    { name: 'China', code: 'CN' },
+    { name: 'Egypt', code: 'EG' },
+    { name: 'France', code: 'FR' },
+    { name: 'Germany', code: 'DE' },
+    { name: 'India', code: 'IN' },
+    { name: 'Japan', code: 'JP' },
+    { name: 'Spain', code: 'ES' },
+    { name: 'United States', code: 'US' },
+]);
 </script>
 
 <script>
@@ -60,7 +100,7 @@ export default {
             away: true,
             datasetView: false,
             datasetEdit: false,
-            dialog: false,
+            datasetDelete: false,
         };
     },
     computed: {
@@ -157,7 +197,194 @@ export default {
                     </Accordion>
                 </div>
                 <div class="p-5 sm:ml-60">
-                    <Calendar v-model="date" showIcon />
+                    <Dialog
+                        v-model:visible="datasetView"
+                        modal
+                        header="Dataset View"
+                        :style="{ width: '75vw' }">
+                        <div>
+                            <div class="card flex flex-column md:flex-row gap-3">
+                                <div class="p-inputgroup flex-1">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-id-card"></i>
+                                    </span>
+                                    <InputText v-model="valueFirstName" placeholder="First Name" />
+                                </div>
+                                <div class="p-inputgroup flex-1">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-id-card"></i>
+                                    </span>
+                                    <InputText v-model="vauleLastName" placeholder="Last Name" />
+                                </div>
+                            </div>
+                            <div class="card flex flex-column md:flex-row gap-3 mt-8">
+                                <div class="p-inputgroup flex-1">
+                                    <SelectButton
+                                        v-model="valueGender"
+                                        :options="optionsGender"
+                                        aria-labelledby="basic" />
+                                </div>
+                                <div class="p-inputgroup flex-1">
+                                    <span class="p-inputgroup-addon"> Birthday </span>
+                                    <Calendar v-model="date" showIcon />
+                                </div>
+                            </div>
+                            <div class="card flex flex-column md:flex-row gap-3 mt-8">
+                                <div class="p-inputgroup flex-1">
+                                    <Dropdown
+                                        v-model="selectedCountry"
+                                        :options="countries"
+                                        filter
+                                        optionLabel="name"
+                                        placeholder="Select a Country"
+                                        class="w-full md:w-14rem">
+                                        <template #value="slotProps">
+                                            <div
+                                                v-if="slotProps.value"
+                                                class="flex align-items-center">
+                                                <img
+                                                    :alt="slotProps.value.label"
+                                                    src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
+                                                    :class="`mr-2 flag flag-${slotProps.value.code.toLowerCase()}`"
+                                                    style="width: 18px" />
+                                                <div>{{ slotProps.value.name }}</div>
+                                            </div>
+                                            <span v-else>
+                                                {{ slotProps.placeholder }}
+                                            </span>
+                                        </template>
+                                        <template #option="slotProps">
+                                            <div class="flex align-items-center">
+                                                <img
+                                                    :alt="slotProps.option.label"
+                                                    src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
+                                                    :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`"
+                                                    style="width: 18px" />
+                                                <div>{{ slotProps.option.name }}</div>
+                                            </div>
+                                        </template>
+                                    </Dropdown>
+                                </div>
+                                <div class="p-inputgroup flex-1">
+                                    <div class="card flex justify-content-center">
+                                        <Rating v-model="value" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card flex justify-content-center mt-8">
+                                <span class="p-float-label">
+                                    <Textarea v-model="valueTextarea" rows="5" cols="90" />
+                                    <label>Profile</label>
+                                </span>
+                            </div>
+                        </div>
+                    </Dialog>
+                    <Dialog
+                        v-model:visible="datasetEdit"
+                        modal
+                        header="Dataset Edit"
+                        :style="{ width: '75vw' }">
+                        <div>
+                            <div class="card flex flex-column md:flex-row gap-3">
+                                <div class="p-inputgroup flex-1">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-id-card"></i>
+                                    </span>
+                                    <InputText placeholder="First Name" />
+                                </div>
+                                <div class="p-inputgroup flex-1">
+                                    <span class="p-inputgroup-addon">
+                                        <i class="pi pi-id-card"></i>
+                                    </span>
+                                    <InputText placeholder="Last Name" />
+                                </div>
+                            </div>
+                            <div class="card flex flex-column md:flex-row gap-3 mt-8">
+                                <div class="p-inputgroup flex-1">
+                                    <SelectButton
+                                        v-model="valueGender"
+                                        :options="optionsGender"
+                                        aria-labelledby="basic" />
+                                </div>
+                                <div class="p-inputgroup flex-1">
+                                    <span class="p-inputgroup-addon"> Birthday </span>
+                                    <Calendar v-model="date" showIcon />
+                                </div>
+                            </div>
+                            <div class="card flex flex-column md:flex-row gap-3 mt-8">
+                                <div class="p-inputgroup flex-1">
+                                    <Dropdown
+                                        v-model="selectedCountry"
+                                        :options="countries"
+                                        filter
+                                        optionLabel="name"
+                                        placeholder="Select a Country"
+                                        class="w-full md:w-14rem">
+                                        <template #value="slotProps">
+                                            <div
+                                                v-if="slotProps.value"
+                                                class="flex align-items-center">
+                                                <img
+                                                    :alt="slotProps.value.label"
+                                                    src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
+                                                    :class="`mr-2 flag flag-${slotProps.value.code.toLowerCase()}`"
+                                                    style="width: 18px" />
+                                                <div>{{ slotProps.value.name }}</div>
+                                            </div>
+                                            <span v-else>
+                                                {{ slotProps.placeholder }}
+                                            </span>
+                                        </template>
+                                        <template #option="slotProps">
+                                            <div class="flex align-items-center">
+                                                <img
+                                                    :alt="slotProps.option.label"
+                                                    src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
+                                                    :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`"
+                                                    style="width: 18px" />
+                                                <div>{{ slotProps.option.name }}</div>
+                                            </div>
+                                        </template>
+                                    </Dropdown>
+                                </div>
+                                <div class="p-inputgroup flex-1">
+                                    <div class="card flex justify-content-center">
+                                        <Rating v-model="value" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card flex justify-content-center mt-8">
+                                <span class="p-float-label">
+                                    <Textarea v-model="valueTextarea" rows="5" cols="90" />
+                                    <label>Profile</label>
+                                </span>
+                            </div>
+                            <div class="mt-8">
+                                <Button type="submit" label="Submit" />
+                            </div>
+                        </div>
+                    </Dialog>
+                    <Dialog
+                        v-model:visible="datasetDelete"
+                        modal
+                        header="Dateset Delete"
+                        :style="{ width: '75vw' }">
+                        <div class="flex justify-end gap-6">
+                            <Button
+                                label="Delete"
+                                icon="pi pi-check"
+                                iconPos="right"
+                                @click="datasetDelete = false" />
+                            <Button
+                                label="Cancel"
+                                severity="secondary"
+                                icon="pi pi-times"
+                                iconPos="right"
+                                @click="datasetDelete = false"
+                                text />
+                        </div>
+                    </Dialog>
+
                     <div id="dataset">
                         <div class="pl-4 pt-4 text-4xl font-bold">DSBG</div>
                         <dataset
@@ -261,7 +488,7 @@ export default {
                                                         @click="datasetEdit = true"
                                                         class="hover:text-zinc-600" />
                                                     <IconTrash
-                                                        @click="dialog = true"
+                                                        @click="datasetDelete = true"
                                                         class="hover:text-zinc-600" />
                                                 </td>
                                             </tr>

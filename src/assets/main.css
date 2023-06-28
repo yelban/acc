@@ -25,3 +25,20 @@
     height: 20px;
     background: url('./icons/search.svg');
 }
+
+.p-accordion .p-accordion-header .p-accordion-header-link {
+    color: #005087 !important;
+    background: none !important;
+    border: none !important;
+}
+
+.p-accordion .p-accordion-content {
+    font-weight: 600 !important;
+    color: #005087 !important;
+    background: none !important;
+    border: none !important;
+}
+
+.p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+    color: #005087 !important;
+}

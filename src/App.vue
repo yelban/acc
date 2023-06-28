@@ -24,17 +24,38 @@ import Textarea from 'primevue/textarea';
 
 import Button from 'primevue/button';
 
+import FileUpload from 'primevue/fileupload';
+
+import Toast from 'primevue/toast';
+
+import { useToast } from 'primevue/usetoast';
+
+import Divider from 'primevue/divider';
+
+import Checkbox from 'primevue/checkbox';
+
+import Badge from 'primevue/badge';
+
 import { ref } from 'vue';
+
 const valueFirstName = ref('Hastings');
+
 const vauleLastName = ref('Skerratt');
+
 const date = ref('06/09/2023');
+
 const value = ref(1);
+
 const valueGender = ref('Femel');
+
 const optionsGender = ref(['Femel', 'Male']);
+
 const valueTextarea = ref(
     'In view of the recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family, which is the foundation of freedom, justice and peace in the world.'
 );
+
 const selectedCountry = ref({ name: 'Australia', code: 'AU' });
+
 const countries = ref([
     { name: 'Australia', code: 'AU' },
     { name: 'Taiwan', code: 'TW' },
@@ -47,6 +68,25 @@ const countries = ref([
     { name: 'Spain', code: 'ES' },
     { name: 'United States', code: 'US' },
 ]);
+
+const toastUpload = useToast();
+
+const onUpload = () => {
+    toastUpload.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded', life: 3000 });
+};
+
+const checkBox = ref();
+
+const toastShow = useToast();
+
+const clickToast = () => {
+    toastShow.add({
+        severity: 'info',
+        summary: 'Info',
+        detail: 'There is a toast',
+        life: 3000,
+    });
+};
 </script>
 
 <script>
@@ -143,7 +183,7 @@ export default {
 
 <template>
     <div>
-        <header class="w-full h-20 p-5 bg-white shadow-xl z-50 sm:fixed">
+        <header class="w-full p-4 bg-white shadow-xl z-50 sm:fixed">
             <div class="flex items-center justify-between text-lg">
                 <div id="banner" class="">
                     <a href="#" class="flex items-center">
@@ -184,15 +224,23 @@ export default {
         <div class="flex flex-col h-screen">
             <div class="sm:mb-auto sm:mt-20">
                 <div class="p-5 bg-[#F0F0F0] sm:w-60 sm:h-screen sm:fixed">
-                    <Accordion :activeIndex="0">
-                        <AccordionTab header="Header I">
-                            <p class="pl-6">Content 1</p>
+                    <Accordion :activeIndex="2">
+                        <AccordionTab header="MSBG">
+                            <p class="pl-6 -mt-4">JAPAN</p>
                         </AccordionTab>
-                        <AccordionTab header="Header II">
-                            <p class="pl-6">Content 2</p>
+                        <AccordionTab header="SRBG">
+                            <p class="pl-6 -mt-4">CHINA</p>
                         </AccordionTab>
-                        <AccordionTab header="Header III">
-                            <p class="pl-6">Content 3</p>
+                        <AccordionTab header="DSBG">
+                            <p class="pl-6 -mt-4 pb-4">Taiwan</p>
+                            <p class="pl-6 pb-4">US</p>
+                            <p class="pl-6">Europe</p>
+                        </AccordionTab>
+                        <AccordionTab header="SHBG">
+                            <p class="pl-6 -mt-4">Slovakia</p>
+                        </AccordionTab>
+                        <AccordionTab header="EEBG">
+                            <p class="pl-6 -mt-4">India</p>
                         </AccordionTab>
                     </Accordion>
                 </div>
@@ -203,7 +251,7 @@ export default {
                         header="Dataset View"
                         :style="{ width: '75vw' }">
                         <div>
-                            <div class="card flex flex-column md:flex-row gap-3">
+                            <div class="card flex flex-column md:flex-row gap-3 mt-2">
                                 <div class="p-inputgroup flex-1">
                                     <span class="p-inputgroup-addon">
                                         <i class="pi pi-id-card"></i>
@@ -217,66 +265,145 @@ export default {
                                     <InputText v-model="vauleLastName" placeholder="Last Name" />
                                 </div>
                             </div>
-                            <div class="card flex flex-column md:flex-row gap-3 mt-8">
-                                <div class="p-inputgroup flex-1">
-                                    <SelectButton
-                                        v-model="valueGender"
-                                        :options="optionsGender"
-                                        aria-labelledby="basic" />
-                                </div>
-                                <div class="p-inputgroup flex-1">
-                                    <span class="p-inputgroup-addon"> Birthday </span>
-                                    <Calendar v-model="date" showIcon />
-                                </div>
-                            </div>
-                            <div class="card flex flex-column md:flex-row gap-3 mt-8">
-                                <div class="p-inputgroup flex-1">
-                                    <Dropdown
-                                        v-model="selectedCountry"
-                                        :options="countries"
-                                        filter
-                                        optionLabel="name"
-                                        placeholder="Select a Country"
-                                        class="w-full md:w-14rem">
-                                        <template #value="slotProps">
-                                            <div
-                                                v-if="slotProps.value"
-                                                class="flex align-items-center">
-                                                <img
-                                                    :alt="slotProps.value.label"
-                                                    src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
-                                                    :class="`mr-2 flag flag-${slotProps.value.code.toLowerCase()}`"
-                                                    style="width: 18px" />
-                                                <div>{{ slotProps.value.name }}</div>
-                                            </div>
-                                            <span v-else>
-                                                {{ slotProps.placeholder }}
-                                            </span>
-                                        </template>
-                                        <template #option="slotProps">
-                                            <div class="flex align-items-center">
-                                                <img
-                                                    :alt="slotProps.option.label"
-                                                    src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
-                                                    :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`"
-                                                    style="width: 18px" />
-                                                <div>{{ slotProps.option.name }}</div>
-                                            </div>
-                                        </template>
-                                    </Dropdown>
-                                </div>
-                                <div class="p-inputgroup flex-1">
-                                    <div class="card flex justify-content-center">
-                                        <Rating v-model="value" />
+                            <div class="card">
+                                <div
+                                    class="flex justify-content-between flex-wrap card-container mt-6">
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Toast />
+                                        <FileUpload
+                                            mode="basic"
+                                            name="demo[]"
+                                            url="./upload.php"
+                                            accept="image/*"
+                                            :maxFileSize="1000000"
+                                            @upload="onUpload"
+                                            chooseLabel="File Upload" />
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <SelectButton
+                                            v-model="valueGender"
+                                            :options="optionsGender"
+                                            aria-labelledby="basic" />
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <span class="p-inputgroup-addon"> Birthday </span>
+                                        <Calendar v-model="date" showIcon />
                                     </div>
                                 </div>
                             </div>
-                            <div class="card flex justify-content-center mt-8">
-                                <span class="p-float-label">
-                                    <Textarea v-model="valueTextarea" rows="5" cols="90" />
-                                    <label>Profile</label>
-                                </span>
+                            <div class="card">
+                                <div
+                                    class="flex justify-content-between flex-wrap card-container mt-6">
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Dropdown
+                                            v-model="selectedCountry"
+                                            :options="countries"
+                                            filter
+                                            optionLabel="name"
+                                            placeholder="Select a Country"
+                                            class="w-full md:w-14rem">
+                                            <template #value="slotProps">
+                                                <div
+                                                    v-if="slotProps.value"
+                                                    class="flex align-items-center">
+                                                    <img
+                                                        :alt="slotProps.value.label"
+                                                        src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
+                                                        :class="`mr-2 flag flag-${slotProps.value.code.toLowerCase()}`"
+                                                        style="width: 18px" />
+                                                    <div>{{ slotProps.value.name }}</div>
+                                                </div>
+                                                <span v-else>
+                                                    {{ slotProps.placeholder }}
+                                                </span>
+                                            </template>
+                                            <template #option="slotProps">
+                                                <div class="flex align-items-center">
+                                                    <img
+                                                        :alt="slotProps.option.label"
+                                                        src="https://primefaces.org/cdn/primevue/images/flag/flag_placeholder.png"
+                                                        :class="`mr-2 flag flag-${slotProps.option.code.toLowerCase()}`"
+                                                        style="width: 18px" />
+                                                    <div>{{ slotProps.option.name }}</div>
+                                                </div>
+                                            </template>
+                                        </Dropdown>
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Rating v-model="value" />
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <div
+                                            class="card flex flex-wrap justify-content-center gap-2">
+                                            <Badge value="2"></Badge>
+                                            <Badge value="8" severity="success"></Badge>
+                                            <Badge value="6" severity="info"></Badge>
+                                            <Badge value="9" severity="warning"></Badge>
+                                            <Badge value="5" severity="danger"></Badge>
+                                        </div>
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Toast />
+                                        <Button label="Show Notice" @click="clickToast()" />
+                                    </div>
+                                </div>
                             </div>
+                            <div class="card mt-6">
+                                <div class="flex justify-content-between flex-wrap card-container">
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Checkbox
+                                            v-model="checkBox"
+                                            inputId="ingredient1"
+                                            name="checkbox"
+                                            value="MSBG" />
+                                        <label for="ingredient1" class="ml-2"> MSBG </label>
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Checkbox
+                                            v-model="checkBox"
+                                            inputId="ingredient2"
+                                            name="checkbox"
+                                            value="SRBG" />
+                                        <label for="ingredient2" class="ml-2"> SRBG </label>
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Checkbox
+                                            v-model="checkBox"
+                                            inputId="ingredient3"
+                                            name="checkbox"
+                                            value="DSBG" />
+                                        <label for="ingredient3" class="ml-2"> DSBG </label>
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Checkbox
+                                            v-model="checkBox"
+                                            inputId="ingredient4"
+                                            name="checkbox"
+                                            value="SHBG" />
+                                        <label for="ingredient4" class="ml-2"> SHBG </label>
+                                    </div>
+                                    <div class="flex align-items-center justify-content-center">
+                                        <Checkbox
+                                            v-model="checkBox"
+                                            inputId="ingredient5"
+                                            name="checkbox"
+                                            value="EEBG" />
+                                        <label for="ingredient5" class="ml-2"> EEBG </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card mt-6">
+                                <div class="flex justify-content-between flex-wrap card-container">
+                                    <div
+                                        class="flex align-items-center justify-content-center p-float-label">
+                                        <Textarea v-model="valueTextarea" rows="5" cols="90" />
+                                        <label>Profile</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <Divider align="right" type="dashed" class="mt-6">
+                                <b>Divider</b>
+                            </Divider>
                         </div>
                     </Dialog>
                     <Dialog
